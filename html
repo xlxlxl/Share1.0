@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="email=no"/>
+<meta name="apple-mobile-web-app-title" content="标题">
+<!--添加到主屏后的标题（iOS 6 新增）-->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<!--是否启用 WebApp 全屏模式-->
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<!--设置状态栏的背景颜色-->
+<meta name="screen-orientation" content="portrait">
+<!-- uc强制竖屏 -->
+<meta name="x5-orientation" content="portrait">
+<!-- QQ强制竖屏 -->
+<meta name="browsermode" content="application">
+<!-- UC应用模式 -->
+<meta name="x5-page-mode" content="app">
+<!-- QQ应用模式 -->
+<title>移动端适配分享到代码</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+<header class="header-icon">
+    <div class="wap-zuo">
+        <a href="javascript:history.back();void(0)"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zuo"></use></svg></a>
+    </div>
+    <div class="wap-tit">
+        标题标题
+    </div>
+    <div class="wap-fenxiang">
+        <a href="javascript:void(0)" onClick="toshare()"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-fenxiang"></use></svg></a>
+    </div>
+</header>
+
+
+<div class="am-share">
+    <h3 class="am-share-title">分享到</h3>
+    <ul class="am-share-sns">
+        <li>
+            <a href="#">
+                <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-weixin"></use>
+                </svg>
+                <span>微信</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-pengyouquan"></use>
+                </svg>
+                <span>朋友圈</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-QQ"></use>
+                </svg>
+                <span>QQ</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-QQkongjian"></use>
+                </svg>
+                <span>QQ空间</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-weibo1"></use>
+                </svg>
+                <span>新浪微博</span>
+            </a>
+        </li>
+    </ul>
+    <div class="am-share-footer"><button class="share_btn">取消</button></div>
+</div>
+
+<!--组件依赖js begin-->
+<script type="text/javascript" src="js/zepto.js"></script>
+<!--组件依赖js end-->
+<script src="js/iconfont.js"></script>
+<script type="text/javascript">
+    function toshare(){
+        $(".am-share").addClass("am-modal-active");
+        if($(".sharebg").length>0){
+            $(".sharebg").addClass("sharebg-active");
+        }else{
+            $("body").append('<div class="sharebg"></div>');
+            $(".sharebg").addClass("sharebg-active");
+        }
+        $(".sharebg-active,.share_btn").click(function(){
+            $(".am-share").removeClass("am-modal-active");
+            setTimeout(function(){
+                $(".sharebg-active").removeClass("sharebg-active");
+                $(".sharebg").remove();
+            },300);
+        })
+    }
+</script>
+</body>
+</html>
